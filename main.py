@@ -26,6 +26,8 @@ dropdown = {
     "Уровень": "Бакалавриат"
 }
 
+text = "Заинтересовала данная вакансия, есть опыт в ручном тестировании, немного умею писать автотесты, в качестве доказательства написал скрипт, который сделал отклик на эту вакансию за меня, с кодом можете ознакомиться здесь: "
+
 options = webdriver.ChromeOptions()
 options.add_experimental_option("prefs", {
     "profile.default_content_setting_values.geolocation": 2 
@@ -75,7 +77,12 @@ file_input = driver.find_element(By.XPATH, "//input[@type='file']")
 file_input.send_keys("/Users/dmitriy/Downloads/Тестировщик.pdf")
 
 text_area = driver.find_element(By.TAG_NAME, 'textarea')
-text_area.send_keys("kjrkrejlekrjejkv")
+text_area.send_keys(text)
+
+check = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@type='checkbox']")))
+driver.execute_script("arguments[0].click();", check)
+
+button_click(button2)
 
 time.sleep(10)
 driver.quit()
