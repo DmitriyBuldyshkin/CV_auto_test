@@ -21,6 +21,11 @@ education = {
     "Специальность": "Автоматизация технологических процессов и производств"
 }
 
+dropdown = {
+    "Год выпуска": 2023,
+    "Уровень": "Бакалавриат"
+}
+
 options = webdriver.ChromeOptions()
 options.add_experimental_option("prefs", {
     "profile.default_content_setting_values.geolocation": 2 
@@ -42,6 +47,15 @@ def data_insert(key, value):
     name = div.find_element(By.XPATH, './/input')
     name.send_keys(value)
 
+def drop_down(key, value):
+    drop = driver.find_element(By.XPATH, f"//label[text()='{key}']")
+    div = drop.find_element(By.XPATH, '../..')
+    span = div.find_element(By.TAG_NAME, 'span')
+    span.click()
+    wait.until(EC.presence_of_element_located((By.XPATH, "//ul[@class='autocomplete-list']//li")))
+    var = driver.find_element(By.XPATH, f"//ul[@class='autocomplete-list']//li//span[text()='{value}']")
+    var.click()
+
 button_click(button1)
 
 for key, value in personal_data.items():
@@ -54,5 +68,8 @@ c_list[2].click()
 for key, value in education.items():
     data_insert(key, value)
 
-time.sleep(15)
+for key, value in dropdown.items():
+    drop_down(key, value)
+
+time.sleep(10)
 driver.quit()
