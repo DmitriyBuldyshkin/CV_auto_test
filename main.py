@@ -51,5 +51,8 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//ul[@class='autocomplete-
 c_list = driver.find_elements(By.XPATH, "//ul[@class='autocomplete-list']//li")
 c_list[2].click()
 
+for key, value in education.items():
+    data_insert(key, value)
+
 time.sleep(15)
 driver.quit()
