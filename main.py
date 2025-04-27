@@ -47,5 +47,9 @@ button_click(button1)
 for key, value in personal_data.items():
     data_insert(key, value)
 
+wait.until(EC.presence_of_element_located((By.XPATH, "//ul[@class='autocomplete-list']//li")))
+c_list = driver.find_elements(By.XPATH, "//ul[@class='autocomplete-list']//li")
+c_list[2].click()
+
 time.sleep(15)
 driver.quit()
