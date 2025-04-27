@@ -71,5 +71,11 @@ for key, value in education.items():
 for key, value in dropdown.items():
     drop_down(key, value)
 
+file_input = driver.find_element(By.XPATH, "//input[@type='file']")
+file_input.send_keys("/Users/dmitriy/Downloads/Тестировщик.pdf")
+
+text_area = driver.find_element(By.TAG_NAME, 'textarea')
+text_area.send_keys("kjrkrejlekrjejkv")
+
 time.sleep(10)
 driver.quit()
