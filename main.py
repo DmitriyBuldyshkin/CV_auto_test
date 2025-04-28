@@ -4,21 +4,21 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-address = "https://job.mts.ru/programs/start/521648931474506519"
+address = "https://job.mts.ru/programs/start/518369391050491871"
 button1 = "Хочу на стажировку в МТС"
 button2 = "Подать заявку"
 
 personal_data = {
-    "Имя": "Дмитрий",
-    "Фамилия": "Булдышкин",
-    "Телефон": 9173765880,
-    "Почта": "BuldyshkinDmitriy@yandex.ru",
+    "Имя": "Вупсень",
+    "Фамилия": "Пупсень",
+    "Телефон": 0123456789,
+    "Почта": "example@yandex.ru",
     "Город": "Москва"
 }
 
 education = {
-    "ВУЗ": "Уфимский университет науки и технологий",
-    "Специальность": "Автоматизация технологических процессов и производств"
+    "ВУЗ": "Хогвартс",
+    "Специальность": "Маг"
 }
 
 dropdown = {
@@ -26,7 +26,7 @@ dropdown = {
     "Уровень": "Бакалавриат"
 }
 
-text = "Заинтересовала данная вакансия, есть опыт в ручном тестировании, немного умею писать автотесты, в качестве доказательства написал скрипт, который сделал отклик на эту вакансию за меня, с кодом можете ознакомиться здесь: https://github.com/DmitriyBuldyshkin/CV_auto_test"
+text = "Длинное сообщение"
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("prefs", {
